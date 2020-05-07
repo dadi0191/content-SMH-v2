@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<title>JavaScript - read Hue JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
 <body>
-<h2>Link</h2>
-<h2>
- <a href="192.168.1.116/api/Ssr-74RWMVAbFUiEUKzyyifYmpo6UEoKdT4YeFFh/sensors/13/">LINK</a></h2>
+    <div class="mypanel"></div>
 
-<h2>My First JavaScript v3</h2>
-
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time v2</button>
-
-<p id="demo"></p>
-
+    <script>
+    $.getJSON('http:/192.168.1.116/api/Ssr-74RWMVAbFUiEUKzyyifYmpo6UEoKdT4YeFFh/sensors/13/', function(data) {
+        
+        var text = `<h2>Date: ${data.lastupdated}</h2><br>
+                    <h1>Temp: ${data.temperature}</h1><br>`
+                    
+        
+        $(".mypanel").html(text);
+    });
+    </script>
+    
 </body>
-</html> 
+</html>
